@@ -17,7 +17,7 @@ This is the official GitHub repository for CMD(xmuda) dataset.
 ### 1. Installation and Data Preparation
 a. Clone this repository.
 ```shell
-git clone https://github.com/wayyeah/CMD-xmuda.git
+git clone https://github.com/im-djh/CMD.git
 ```
 b. Create virtual-env.
 ```shell
@@ -48,13 +48,11 @@ ln -s /path/to/xmuda /xmuda/data/xmu
 ```
 All the file will be organized as,
 ```
-xmuda
+CMD
 ├── data
 │   ├── xmu
 │   │   │── ImageSets
-│   │   │── calib_to_ego
-│   │   │── ImageSets
-|   |   |── label_ego
+|   |   |── label
 |   |   |── seq**     
 ├── pcdet
 ├── tools
