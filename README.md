@@ -4,10 +4,10 @@ A dataset specifically designed for cross-mechanism domain adaptation, incorpora
 
 
 ## Download
-This is the official GitHub repository for CMD(xmuda) dataset.
+This is the official GitHub repository for CMD (Cross Mechanism Dataset).
 
-1. The download links can be found in `(to update)`
-2. We also support Baidu Yunpan. Link：[]() with extraction code: **** 
+The download links can be found in [links](http://39.98.109.195:1000/).
+
 
 ## Data Sample
 ![sample](docs/data_vis.png)
