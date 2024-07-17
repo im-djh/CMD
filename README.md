@@ -1,13 +1,9 @@
 # CMD: A Cross Mechanism Domain Adaptation Dataset for 3D Object Detection(ECCV2024)
 
-A dataset specifically designed for cross-mechanism domain adaptation, incorporating mechanical LiDARs with both high-res and low-res beams, solid-state LiDAR, and 4D millimeter-wave radar.
-
+An multi-mechanism, multi-modal real-world 3D object detection dataset that includes low-resolustion (32 beams) mechanical LiDAR, high-resolustion (128 beams) mechanical LiDAR, solid-state LiDAR, 4D millimeter-wave radar, and cameras. Each sensor is precisely time-synchronized and calibrated, making the dataset suitable for 3D object detection research involving multi-mechanism LiDAR data, particularly for cross-mechanism domain adaptation.
 
 ## Download
-This is the official GitHub repository for CMD (Cross Mechanism Dataset).
-
-The download links can be found in [links](http://39.98.109.195:1000/).
-
+Log in [here](http://39.98.109.195:1000/) using the username "Guest" and the password "guest_CMD" to download the dataset.
 
 ## Data Sample
 ![sample](docs/data_vis.png)
@@ -15,15 +11,17 @@ The download links can be found in [links](http://39.98.109.195:1000/).
 ## Get Started
 
 ### 1. Installation and Data Preparation
-a. Clone this repository.
+**A.** Clone this repository.
 ```shell
 git clone https://github.com/im-djh/CMD.git
 ```
-b. Create virtual-env.
+**B.** Create virtual-env.
 ```shell
 conda create -n xmuda python=3.8
 ```
-b.1 cuda-11.4、cuda-11.6、cuda-11.7 tested
+
+**C.** Install requirements
+cuda-11.4、cuda-11.6、cuda-11.7 tested
 ```
 conda activate xmuda
 pip install torch==1.13.0+cu116 torchvision==0.14.0+cu116 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/cu116
@@ -31,20 +29,11 @@ pip install spconv-cu116
 pip install -r requirements.txt
 python setup.py develop
 ```
-b.2 cuda-12.x not tested
-```
-conda activate xmuda
-pip install torch==2.1.0 torchvision==0.16.0 torchaudio==2.1.0 --index-url https://download.pytorch.org/whl/cu121
-pip install spconv-cu120
-pip install -r requirements.txt
-python setup.py develop
-```
-c.Download the dataset and run 
+
+**D.** Download the dataset and create dataset infos
 
 ```
-cat xmuda.tar.gz.part* > xmuda.tar.gz
-tar -xzvf xmuda.tar.gz xmuda
-ln -s /path/to/xmuda /xmuda/data/xmu
+ln -s <path-to-the-downloaded-dataset> /xmuda/data/xmu
 ```
 All the file will be organized as,
 ```
@@ -58,21 +47,23 @@ CMD
 ├── tools
 ```
 
-
-* Generate the data infos by running the following command: 
+- Generate the data infos by running the following command: 
 ```python 
  python -m pcdet.datasets.xmu.xmu_dataset --func create_xmu_infos  --cfg_file tools/cfgs/dataset_configs/xmu/xmuda_dataset.yaml
 ```
-* Generate gt_sampling_database by running the following command: 
+- Generate gt_sampling_database by running the following command: 
 ```
 python -m pcdet.datasets.xmu.xmu_dataset --func create_groundtruth_database  --cfg_file tools/cfgs/dataset_configs/xmu/xmu_dataset.yaml
 ```
 
-# Due to our updated data annotation, the AP is different from what is presented in the paper
+**E.** For further steps, please refer to [OpenPCDet](https://github.com/open-mmlab/OpenPCDet).
+
+# Experimental Results
+All LiDAR-based models are trained with 4 GTX 3090 GPU. 
+Due to slight differences in annotation and calculation rules, there may be minor discrepancies between the experimental results and those reported in the paper.
 ## Model Zoo 
 ### 3D Object Detection Baselines
-Selected supported methods are shown in the below table. The results are the 3D detection performance on the val set of CMD dataset.
-* All LiDAR-based models are trained with 4 GTX 3090 GPUs and are available for download. 
+Selected supported methods are shown in the below table. The results are the 3D detection performance on the val set of our CMD.
 
 #### Ouster
 |AP@50                                                        | Car|Truck |Pedestrian | Cyclist | mAP    |
@@ -106,35 +97,37 @@ Selected supported methods are shown in the below table. The results are the 3D 
 ```
 cd ../../tools
 ```
-*if you use singe gpu run 
+- for singe gpu
 ```
 python train.py --cfg_file  cfgs/xmu_ouster_models/centerpoint.yaml 
 ```
-*if you use multi 8 gpus run
+- for multiple gpus (e.g. 8)
 ```
 bash scripts/dist_train.sh 8 --cfg_file cfgs/xmu_ouster_models/centerpoint.yaml 
 ```
 
 ## Evaluation
-*if you use singe gpu run 
+- for singe gpu
 ```
 python test.py --cfg_file cfgs/xmu_ouster_models/centerpoint.yaml --ckpt /path/to/your/checkpoint 
 ```
-*if you use multi 8 gpus run
+- for multiple gpus (e.g. 8)
 ```
 bash scripts/dist_test.sh 8 --cfg_file cfgs/xmu_ouster_models/centerpoint.yaml --ckpt /path/to/your/checkpoint 
 ```
 
 
 ## Todo List
-- [ ] Data of Radar.
-- [ ] Code of Radar and Camera.
-- [ ] Code of DIG.
-- [ ] Code of BEVFUSION.
+- [ ] Make use of 4D Radar.
+- [ ] Make use of Camera.
 
+## Notes
+- This reposity is developed based on OpenPCDet.
+- Thanks to [Wei Ye](https://github.com/wayyeah) for his important contributions to the code repository.
+- More about our lab can be found [here](https://asc.xmu.edu.cn/).
 
 ## Citation
-If you find this dataset useful in your research, please consider cite:
+If you find our **C**ross **M**echanism **D**ataset useful in your research, please consider cite:
 
 ```
 
