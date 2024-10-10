@@ -130,7 +130,7 @@ bash scripts/dist_test.sh 8 --cfg_file cfgs/xmu_ouster_models/centerpoint.yaml -
 If you find our **C**ross **M**echanism **D**ataset useful in your research, please consider cite:
 
 ```
-@article{dengcmd,
+@inproceedings{dengcmd,
   title={CMD: A Cross Mechanism Domain Adaptation Dataset for 3D Object Detection},
   author={Deng, Jinhao and Ye, Wei and Wu, Hai and Huang, Xun and Xia, Qiming and Li, Xin and Fang, Jin and Li, Wei and Wen, Chenglu and Wang, Cheng},
   booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
