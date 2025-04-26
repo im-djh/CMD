@@ -7,6 +7,8 @@ Log in [here](http://39.98.109.195:1000/) using the username "Guest" and the pas
 
 ## :balloon: CMD Cross-Mechanism Domain Adaptation 3D Object Detection Challenge
 
+**In order to hold the challenge, we temporarily hid M1's training set data, which will be recovered after the competition.**
+
 Please refer to the documentation for detailed steps
 
 ## Data Sample
