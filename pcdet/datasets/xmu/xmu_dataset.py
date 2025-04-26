@@ -446,10 +446,11 @@ class XMechanismUnmanned(DatasetTemplate):
                 info['calibs'] = {}
                 info['calibs'].update(calibs)
                 
-                info['label_path'] = os.path.join(self.root_path, 'label_ego', 'seq'+seq_idx, str(i).zfill(4)+'.json')
-                assert os.path.exists(info['label_path']), "the label file {} does not exist!".format(info['label_path'])
+                
             
                 if has_lable:
+                    info['label_path'] = os.path.join(self.root_path, 'label_ego', 'seq'+seq_idx, str(i).zfill(4)+'.json')
+                    assert os.path.exists(info['label_path']), "the label file {} does not exist!".format(info['label_path'])
                     annotations = {}
                     boxes_7DoF, boxes_9DoF, classes, track_ids, confidences, occulusions, acts, points_num = self.get_label(idx=idx)
                     annotations['boxes_7DoF'] = boxes_7DoF
@@ -564,8 +565,10 @@ def create_xmu_infos(dataset_cfg, class_names, data_path,sensors, save_path, wor
         print ('---------------Start to create xmu infos---------------')
 
         dataset.set_split(train_split)
-        xmu_infos_train = dataset.get_infos(class_names, num_workers=workers, has_lable=True, sample_seq_list=None, num_features=4,sensor=sensor)
-    
+        if sensor=='robosense':
+            xmu_infos_train = dataset.get_infos(class_names, num_workers=workers, has_lable=False, sample_seq_list=None, num_features=4,sensor=sensor)
+        else:
+            xmu_infos_train = dataset.get_infos(class_names, num_workers=workers, has_lable=True, sample_seq_list=None, num_features=4,sensor=sensor)
         with open(train_filename, 'wb') as f:
             pickle.dump(xmu_infos_train, f)
         print ('xmu %s samples are saved to %s'%(train_split, train_filename))
@@ -577,7 +580,7 @@ def create_xmu_infos(dataset_cfg, class_names, data_path,sensors, save_path, wor
         print ('xmu %s samples are saved to %s'%(val_split, val_filename))
 
         dataset.set_split(test_split)
-        xmu_infos_test = dataset.get_infos(class_names, num_workers=workers, has_lable=True, sample_seq_list=None, num_features=4,sensor=sensor)
+        xmu_infos_test = dataset.get_infos(class_names, num_workers=workers, has_lable=False, sample_seq_list=None, num_features=4,sensor=sensor)
         # print('xmu_info_test: ', xmu_infos_test)
         with open(test_filename, 'wb') as f:
             pickle.dump(xmu_infos_test, f)
