@@ -51,18 +51,36 @@ sensors = ['ouster', 'hesai']
 ```
 python -m pcdet.datasets.xmu.xmu_dataset --func create_groundtruth_database  --cfg_file tools/cfgs/dataset_configs/xmu/xmu_dataset.yaml
 ```
-**E.** Switch to the Test‑Set Configuration
+**E.** Train  You can use any models you want
+- For example, train on OS128
 
-- Edit your model YAML and override the DATA_CONFIG block:
+```
+#single GPU
+python train.py --cfg_file  cfgs/xmu_ouster_models/centerpoint.yaml
+#multi GPU
+bash scripts/dist_train.sh 8 --cfg_file cfgs/xmu_ouster_models/centerpoint.yaml 
+```
+- For example, train on HesaiXT32
+
+```
+#single GPU
+python train.py --cfg_file  cfgs/xmu_hesai_models/centerpoint.yaml
+#multi GPU
+bash scripts/dist_train.sh 8 --cfg_file cfgs/xmu_hesai_models/centerpoint.yaml 
+```
+
+**F.** Switch to the Test‑Set Configuration
+
+- Edit your model yaml (eg. centerpoint.yaml ) and override the DATA_CONFIG block:
 ```
 DATA_CONFIG:
-  _BASE_CONFIG_: tools/cfgs/dataset_configs/xmu/xmu_dataset_robosense_test.yaml
+  _BASE_CONFIG_: cfgs/dataset_configs/xmu/xmu_dataset_robosense_test.yaml
 ```
 
-**F.** Run Inference and Produce result.pkl
+**G.** Run Inference and Produce result.pkl
 ```
 bash scripts/dist_test.sh 4 \
     --cfg_file  XXX \
     --ckpt      XXX \
 ```
-**G.** Submit result.pkl to CodaBench
+**H.** Submit result.pkl to CodaBench
