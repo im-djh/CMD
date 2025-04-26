@@ -5,6 +5,10 @@ An multi-mechanism, multi-modal real-world 3D object detection dataset that incl
 ## Download
 Log in [here](http://39.98.109.195:1000/) using the username "Guest" and the password "guest_CMD" to download the dataset.
 
+## :balloon: CMD Cross-Mechanism Domain Adaptation 3D Object Detection Challenge
+
+Please refer to the documentation for detailed steps
+
 ## Data Sample
 ![sample](docs/data_vis.png)
 
