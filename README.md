@@ -9,7 +9,7 @@ Log in [here](http://39.98.109.195:1000/) using the username "Guest" and the pas
 
 ### **In order to hold the challenge, we temporarily hid M1's training set data, which will be recovered after the competition.**
 
-Please refer to the documentation for detailed steps
+Please refer to the [documentation](docs/competitiontrack.md) for detailed steps
 
 ## Data Sample
 ![sample](docs/data_vis.png)
