@@ -68,6 +68,15 @@ python train.py --cfg_file  cfgs/xmu_hesai_models/centerpoint.yaml
 #multi GPU
 bash scripts/dist_train.sh 8 --cfg_file cfgs/xmu_hesai_models/centerpoint.yaml 
 ```
+## Evaluation
+- for singe gpu
+```
+python test.py --cfg_file cfgs/xmu_ouster_models/centerpoint.yaml --ckpt /path/to/your/checkpoint 
+```
+- for multiple gpus (e.g. 8)
+```
+bash scripts/dist_test.sh 8 --cfg_file cfgs/xmu_ouster_models/centerpoint.yaml --ckpt /path/to/your/checkpoint 
+```
 
 **F.** Switch to the Test‑Set Configuration
 
