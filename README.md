@@ -9,7 +9,7 @@ If the download speed is slow, you can download point cloud data on the [Hugging
 
 ## :balloon: CMD Cross-Mechanism Domain Adaptation 3D Object Detection Challenge
 
-link: (Challenge)[https://www.codabench.org/competitions/7749/]
+link: [Challenge](https://www.codabench.org/competitions/7749/)
 
 ### **In order to hold the challenge, we temporarily hid M1's training set data, which will be recovered after the competition.**
 
