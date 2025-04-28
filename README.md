@@ -107,7 +107,7 @@ Selected supported methods are shown in the below table. The results are the 3D 
 ```
 cd ../../tools
 ```
-- for singe gpu
+- for single gpu
 ```
 python train.py --cfg_file  cfgs/xmu_ouster_models/centerpoint.yaml 
 ```
@@ -117,7 +117,7 @@ bash scripts/dist_train.sh 8 --cfg_file cfgs/xmu_ouster_models/centerpoint.yaml
 ```
 
 ## Evaluation
-- for singe gpu
+- for single gpu
 ```
 python test.py --cfg_file cfgs/xmu_ouster_models/centerpoint.yaml --ckpt /path/to/your/checkpoint 
 ```
