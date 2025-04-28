@@ -85,3 +85,14 @@ bash scripts/dist_test.sh 4 \
 ```
 **H.** Submit result.pkl to CodaBench
 [link](https://www.codabench.org/competitions/7749/)
+You have to provide a single zip containing the prediction.
+
+The contents of the zip-file should be organized like this:
+
+submission.zip
+├── prediction.pkl
+For the detailed way to generate the pkl file, please refer to here.https://github.com/im-djh/CMD/blob/master/docs/competitiontrack.md
+
+Note: The upload of the zip file with your results takes some time and there is (unfortunately) no indicator for the status of the upload. You will just see that is being processed upon successful uploading your data.
+
+
