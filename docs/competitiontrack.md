@@ -84,3 +84,4 @@ bash scripts/dist_test.sh 4 \
     --ckpt      XXX \
 ```
 **H.** Submit result.pkl to CodaBench
+[link](https://www.codabench.org/competitions/7749/)
