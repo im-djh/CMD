@@ -5,7 +5,7 @@ An multi-mechanism, multi-modal real-world 3D object detection dataset that incl
 ## Download
 Option 1: Log in [here](http://39.98.109.195:1000/) using the username "Guest" and the password "guest_CMD" to download the dataset.
 
-Option 2 (Recommended): Get CMD from [Hugging Face](https://huggingface.co/datasets/jinhaodeng/CMD/tree/main) for a quicker download experience
+Option 2 (Recommended): Get CMD from [Hugging Face](https://huggingface.co/datasets/jinhaodeng/CMD/tree/main) for a quicker download experience.
 
 ## :balloon: CMD Cross-Mechanism Domain Adaptation 3D Object Detection Challenge
 
