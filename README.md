@@ -3,9 +3,9 @@
 An multi-mechanism, multi-modal real-world 3D object detection dataset that includes low-resolustion (32 beams) mechanical LiDAR, high-resolustion (128 beams) mechanical LiDAR, solid-state LiDAR, 4D millimeter-wave radar, and cameras. Each sensor is precisely time-synchronized and calibrated, making the dataset suitable for 3D object detection research involving multi-mechanism LiDAR data, particularly for cross-mechanism domain adaptation.
 
 ## Download
-Log in [here](http://39.98.109.195:1000/) using the username "Guest" and the password "guest_CMD" to download the dataset.
+Option1: Log in [here](http://39.98.109.195:1000/) using the username "Guest" and the password "guest_CMD" to download the dataset.
 
-If the download speed is slow, you can download point cloud data on the [Hugging Face](https://huggingface.co/datasets/jinhaodeng/CMD/tree/main). Please download the label and ImageSets from the [original link](http://39.98.109.195:1000/).
+Option2: Download CMD from [Hugging Face](https://huggingface.co/datasets/jinhaodeng/CMD/tree/main). 
 
 ## :balloon: CMD Cross-Mechanism Domain Adaptation 3D Object Detection Challenge
 
